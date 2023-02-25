@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="col col-sm-4 col-md-6 col-lg-12">
+        <h2>Application For Individual Applicant</h2>
+        <p>The name and photo associated with your email account will be recorded<br><p style="color: red;">All fields are required fields*</p>
+    </div>
+    <br><br>
+
+    <div class="row">
+        <div class="col col-sm-4 col-md-6 form-group">
+            <label for="customFile" class="form-label">Upload Resume File - रेझ्युमे फाईल अपलोड करा</label>  
+            <input class="form-control" type="file" id="customFile" (change)="onChange($event)">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="btngroup">
+        <button (click)="backtoEmp()" id="bt" type="button" class="btn btn-primary">Back</button>
+        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>
+        <button id="bt" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+
+
+
+
+</div>

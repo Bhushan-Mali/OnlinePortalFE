@@ -1,0 +1,86 @@
+
+<div class="container">
+
+    <div class="col col-sm-4 col-md-6 col-lg-12">
+        <h2>Application For Individual Applicant</h2>
+        <p>The name and photo associated with your email account will be recorded<br><p style="color: red;">All fields are required fields*</p>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Last/Previous Education - शेवटचेे मागील शिक्षण</label>
+            <input class="form-control" type="text">
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="state">State - राज्य निवडा</label>
+            <select ngModel name="state" id="state" class="form-control" required>
+                    <option *ngFor="let item of state" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="dist">District - जिल्हा निवडा</label>
+            <select ngModel name="dist" id="dist" class="form-control" required>
+                    <option *ngFor="let item of dist" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="job">Looking for job in - यामध्ये नोकरी शोधत आहात</label>
+            <select ngModel name="job" id="job" class="form-control" required>
+                    <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    
+    <label>Ready To Relocate - स्थलांतर करन्यास तयार आहात ?</label>
+    <div class="row">
+        <div class="radio col-md-6 form-group relocate_one">
+            <label for="rad0" id="look1">
+                <input ngModel #emp="ngModel" type="radio" name="com" id="rad0" value="yes1" required>Yes 
+            </label>
+            <label for="rad1" id="look2">
+                <input ngModel #emps="ngModel" type="radio" name="com" id="rad1" value="yes2" required>No
+            </label>
+        </div>  
+        <div class="col-md-6 form-group relocate_two">
+            <label for="job">Prefered district for job - नोकरी करन्यास जिल्हा निवडा</label>
+            <select ngModel name="job" id="job" class="form-control" required>
+                    <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>  
+    </div>
+
+    <label>Work Experience - कामाचा अनुभव</label>
+    <div class="row">
+        <div class="radio col-md-6 form-group ">
+            <label for="con0" id="look1">
+            <input ngModel #emp="ngModel" type="radio" name="cot" id="con0" value="fre" required>Fresher
+            </label>
+            <label for="con1" id="look2">
+            <input ngModel #emps="ngModel" type="radio" name="cot" id="con1" value="exp" required>Experienced
+            </label>
+        </div>  
+        <div class="col-md-6 form-group form-group work_two">
+            <label for="job">Previous work experience (in years) - मागील कामाचा अनुभव वर्षांमध्ये</label>
+            <select ngModel name="job" id="job" class="form-control" required>
+                <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>  
+    </div>
+
+    <div class="btngroup">
+        <button (click)="backtoreg()" id="bt" type="button" class="btn btn-primary">Back</button>
+        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>
+        <button (click)="docUpl()" id="bt" type="button" class="btn btn-primary">Next</button>
+    </div>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,8 @@
+label{ font-weight: bold;}
+
+#bt{ margin: 10px; padding: 5px; margin-left: 10px;}
+#state{ cursor: pointer;}
+#dist{ cursor: pointer;}
+#cat{ cursor: pointer;}
+.btngroup{ display: flex; justify-content: center;}
+.pic{ border: 2px;}

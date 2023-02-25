@@ -1,0 +1,22 @@
+h1{ text-align: center;}
+h2{ text-align: center;}
+h6{ text-align: center;}
+p{ text-align: center;}
+label{ font-weight: bold;} 
+
+#con0{cursor: pointer; margin: 10px; padding: 5px;}
+#con1{cursor: pointer; margin: 10px; padding: 5px;}
+#look1{cursor: pointer;}
+#look2{cursor: pointer;}
+#edu{ cursor: pointer;}
+#stream{ cursor: pointer;}
+#grade{ cursor: pointer;}
+
+#title{ cursor: pointer;}
+#gender{ cursor: pointer;}
+#bt{margin: 10px; padding: 5px; margin-left: 10px;}
+.btngroup{ display: flex; justify-content: center;}
+
+
+
+

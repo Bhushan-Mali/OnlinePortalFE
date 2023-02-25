@@ -1,0 +1,125 @@
+
+<div class="container">
+
+    <div class="col col-sm-4 col-md-6 col-lg-12">
+        <h2>Application For Individual Applicant</h2>
+        <p style="color: red;">All fields are required fields*</p>
+    </div>
+    <br>
+
+
+    <div class="row">
+        <div class="col-lg-9 form-group">
+            <label>Name Of The Company</label>
+            <input class="form-control" type="text" placeholder="Enter the name of the company" ngModel name="mycompany" #company="ngModel" required>
+            <div class="alert alert-danger" *ngIf="company.touched && company.invalid">**Please enter company name</div>
+            <br>
+            <label>Postal Address Of The Company</label>
+            <input class="form-control" type="text" ngModel name="add" #address="ngModel" placeholder="Enter the address of the company" required>
+            <div class="alert alert-danger" *ngIf="address.touched && address.invalid">**Please enter company address</div>
+        </div>
+        <br>
+        <div class="col-lg-3 form-group">
+           
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-3 form-group">
+            <label>Date Of Establishment</label>
+            <input class="form-control" type="date" placeholder="Pick date">
+        </div>
+        <div class="col-sm-3 form-group">
+            <label for="state">State - राज्य निवडा</label>
+            <select ngModel name="state" id="state" class="form-control" required>
+                    <option *ngFor="let item of state" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="dist">District - जिल्हा निवडा</label>
+            <select ngModel name="dist" id="dist" class="form-control" required>
+                    <option *ngFor="let item of dist" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-3 form-group">
+            <label>Village/City - गाव/शहर</label>
+            <input class="form-control" type="text" placeholder="Please enter your village/city">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Company Website</label>
+            <input class="form-control" type="text" placeholder="Enter your website">
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="cat">Category</label>
+            <select ngModel name="cat" id="cat" class="form-control" required>
+                    <option *ngFor="let item of cat" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Brief Introduction To Company</label>
+        <textarea class="form-control" ngModel name="comment" #comment="ngModel" placeholder="Enter the brief introduction to company" cols="30" rows="3"></textarea>
+    </div>
+
+
+    <label>Company Point Of Contact Details</label>
+    <div class="row">   
+        <div class="col-sm-4 form-group">
+            <input class="form-control" type="text" placeholder="Full name">
+        </div>
+        <div class="col-sm-4 form-group">
+            <input ngModel #ccon="ngModel" id="ccon" name="ccon" class="form-control" type="tel" 
+                   [pattern]="MOBILE_PATTERN" placeholder="Contact number" required>
+            <div class="alert alert-danger" *ngIf="ccon.touched && ccon.invalid">Please enter mobile number
+                <div *ngIf="ccon.errors?.pattern">Please enter correct mobile number</div>
+            </div>
+        </div>
+        <div class="col-sm-4 form-group">
+            <input ngModel #email="ngModel" class="form-control" id="myemail" name="email" type="email" placeholder="example@gmail.com"
+                   [pattern]="EMAIL_PATTERN" required>
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Please enter email id
+                <div *ngIf="email.errors?.pattern">Please enter appropriate email id</div>
+            </div>
+        </div>
+    </div>
+
+
+    <label>Company HR Details</label>
+    <div class="row">   
+        <div class="col-sm-4 form-group">
+            <input class="form-control" type="text" placeholder="Full name">
+        </div>
+        <div class="col-sm-4 form-group">
+            <input class="form-control" type="text" placeholder="Contact number">
+        </div>
+        <div class="col-sm-4 form-group">
+            <input ngModel #myemail="ngModel" class="form-control" id="email" name="myemail" type="email" placeholder="example@gmail.com"
+               [pattern]="EMAIL_PATTERN" required>
+            <div class="alert alert-danger" *ngIf="myemail.touched && myemail.invalid">Please enter email id
+               <div *ngIf="myemail.errors?.pattern">Please enter appropriate email id</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="btngroup">
+        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>
+        <button id="bt" type="button" class="btn btn-primary">Register</button>
+    </div>
+    
+
+
+
+
+
+
+
+</div>
+
