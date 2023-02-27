@@ -11,7 +11,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   PostData(obj:any){
-    return (this.http.post(this.url, obj));
+    return (this.http.post(this.url, obj, {responseType:'text'}));
   }
 
 }

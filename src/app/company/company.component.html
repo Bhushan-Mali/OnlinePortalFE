@@ -42,7 +42,7 @@
         <div class="col-md-3 form-group">
             <label for="dist">District - जिल्हा निवडा</label>
             <input class="form-control" ngModel #dis="ngModel" type="text" name="dist" placeholder="Enter your district name">
-            <!-- <select ngModel name="dist" id="dist" class="form-control" required>
+            <!-- <select ngModel #dis="ngModel" name="dist" id="dist" class="form-control" required>
                     <option *ngFor="let item of dist" [ngValue]="item">{{item.name}}</option>
             </select> -->
         </div>
@@ -62,7 +62,7 @@
             <label for="cat">Category</label>
             <input ngModel #category="ngModel" name="cat" id="cat" class="form-control" placeholder="Enter category" required>
             <!-- <select ngModel #category="ngModel" name="cat" id="cat" class="form-control" required>
-                    <option *ngFor="let item of cat" (change)="selectChangeHandler($event)" [ngValue]="item">{{item.name}}</option>
+                    <option *ngFor="let item of cat" [ngValue]="item">{{item.name}}</option>
             </select> -->
         </div>
     </div>
@@ -70,7 +70,7 @@
 
     <div class="form-group">
         <label>Brief Introduction To Company</label>
-        <textarea class="form-control" ngModel name="comment" #comment="ngModel" placeholder="Enter the brief introduction to company" cols="30" rows="3"></textarea>
+        <textarea class="form-control" ngModel name="comment" #comment="ngModel" placeholder="Enter the brief introduction to company" cols="30" rows="3" required></textarea>
     </div>
 
 
@@ -99,7 +99,7 @@
     <label>Company HR Details</label>
     <div class="row">   
         <div class="col-sm-4 form-group">
-            <input class="form-control" type="text" placeholder="Full name">
+            <input ngModel #cfullName="ngModel" class="form-control" type="text" placeholder="Full name">
         </div>
         <div class="col-sm-4 form-group">
             <input ngModel #cco="ngModel" id="cco" name="cco" class="form-control" type="tel" 
@@ -122,7 +122,7 @@
         <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>
         <button id="bt" type="button" class="btn btn-primary" (click)="onSend(company.value, address.value,
             date.value, sts.value, dis.value, city.value, web.value, category.value, comment.value,
-            fname.value, ccon.value, email.value, cco.value, myemail.value)" [disabled]="!f.valid">Register</button>
+            fname.value, ccon.value, email.value, cfullName.value, cco.value, myemail.value)" [disabled]="!f.valid">Register</button>
     </div>
 
     </form>

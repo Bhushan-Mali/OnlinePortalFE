@@ -17,7 +17,7 @@ export class CompanyComponent implements OnInit {
         {name:'Sikkim'},{name:'Tamil Nadu'},{name:'Telangana'},{name:'Tripura'},{name:'Uttarakhand'},{name:'Uttar Pradesh'},{name:'West Bengal'} 
       ]
 
-  // dist:any[]=[]
+      dist:any[]=[ {name:'Satara'}, {name:'Pune'}, {name:'Sangali'}, {name:'kolhapur'}, {name:'Beed'}]
 
   cat:any[]=[{name:'OPC'}, {name:'PVT'}, {name:'LLP'},{name:'GOV'},{name:'PVL'}
       ]
@@ -40,13 +40,13 @@ export class CompanyComponent implements OnInit {
   //   this.selectedValue=event.target.value;
   // }
 
-   onSend(mycomany:any, myaddress:any, mydate:any, mysts:any, mydis:any, mycity:any, myweb:any,
-          mycategory:any, mycomment:any, myfname:any, myccon:any, myemail:any, mycco:any, memail:any){
+   onSend(mycompany:any, myaddress:any, mydate:any, mysts:any, mydis:any, mycity:any, myweb:any,
+          mycategory:any, mycomment:any, myfname:any, myccon:any, fname:any, myemail:any, mycco:any, memail:any){
      
         let obj={
-          name:mycomany, address:myaddress, establishmentdate:mydate, state:mysts, district:mydis,
+          name:mycompany, address:myaddress, establishmentdate:mydate, state:mysts, district:mydis,
           city:mycity, website:myweb, category:mycategory, comment:mycomment, hrfullName:myfname,
-          ccontact:myccon, hrgmail:myemail, hrcontact:mycco, cgmail:memail
+          ccontact:myccon, cfullName:fname, hrgmail:myemail, hrcontact:mycco, cgmail:memail
         }
 
         this.service.PostData(obj).subscribe((response)=>{
