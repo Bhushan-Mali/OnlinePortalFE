@@ -8,3 +8,16 @@ p{ text-align: center;}
 #cat{ cursor: pointer;}
 .btngroup{ display: flex; justify-content: center;}
 .pic{ border: 2px;}
+
+.square {
+    height: 165px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    width: 100px;
+    border: 1px solid #000;
+}
+.textinfo {
+    display: flex;
+    justify-content: center;
+    padding-top: 75px;
+}

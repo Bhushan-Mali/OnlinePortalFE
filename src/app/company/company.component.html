@@ -21,7 +21,8 @@
             <div class="alert alert-danger" *ngIf="address.touched && address.invalid">**Please enter company address</div>
         </div>
         <br>
-        <div class="col-lg-3 form-group">
+        <div class="col-lg-3 form-group square">
+            <label class="textinfo">Photo</label>
             <!-- <img src="paris.jpg" class="float-right" alt="Paris" width="304" height="236"> -->
         </div>
     </div>
@@ -99,7 +100,7 @@
     <label>Company HR Details</label>
     <div class="row">   
         <div class="col-sm-4 form-group">
-            <input ngModel #cfullName="ngModel" class="form-control" type="text" placeholder="Full name">
+            <input ngModel #hrfName="ngModel" name="hrfName" class="form-control" type="text" placeholder="Full name">
         </div>
         <div class="col-sm-4 form-group">
             <input ngModel #cco="ngModel" id="cco" name="cco" class="form-control" type="tel" 
@@ -122,7 +123,7 @@
         <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>
         <button id="bt" type="button" class="btn btn-primary" (click)="onSend(company.value, address.value,
             date.value, sts.value, dis.value, city.value, web.value, category.value, comment.value,
-            fname.value, ccon.value, email.value, cfullName.value, cco.value, myemail.value)" [disabled]="!f.valid">Register</button>
+            fname.value, ccon.value, email.value, hrfName.value, cco.value, myemail.value)" [disabled]="!f.valid">Register</button>
     </div>
 
     </form>
