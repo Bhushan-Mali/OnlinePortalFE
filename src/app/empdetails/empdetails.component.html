@@ -5,7 +5,7 @@
         <h2>Application For Individual Applicant</h2>
         <p>The name and photo associated with your email account will be recorded<br><p style="color: red;">All fields are required fields*</p>
     </div>
-    <br>
+    <br><br>
 
     <div class="row">
         <div class="col-md-6 form-group">
@@ -15,7 +15,7 @@
         <div class="col-md-6 form-group">
             <label for="state">State - राज्य निवडा</label>
             <select ngModel name="state" id="state" class="form-control" required>
-                    <option *ngFor="let item of state" [ngValue]="item">{{item.name}}</option>
+                    <option *ngFor="let states of state" [ngValue]="states">{{states}}</option>
             </select>
         </div>
     </div>
@@ -23,14 +23,15 @@
     <div class="row">
         <div class="col-md-6 form-group">
             <label for="dist">District - जिल्हा निवडा</label>
-            <select ngModel name="dist" id="dist" class="form-control" required>
+            <input type="text" class="form-control" placeholder="Enter district">
+            <!-- <select ngModel name="dist" id="dist" class="form-control" required>
                     <option *ngFor="let item of dist" [ngValue]="item">{{item.name}}</option>
-            </select>
+            </select> -->
         </div>
         <div class="col-md-6 form-group">
             <label for="job">Looking for job in - यामध्ये नोकरी शोधत आहात</label>
             <select ngModel name="job" id="job" class="form-control" required>
-                    <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
+                    <option *ngFor="let jobs of job" [ngValue]="jobs">{{jobs}}</option>
             </select>
         </div>
     </div>
@@ -48,9 +49,10 @@
         </div>  
         <div class="col-md-6 form-group relocate_two">
             <label for="job">Prefered district for job - नोकरी करन्यास जिल्हा निवडा</label>
-            <select ngModel name="job" id="job" class="form-control" required>
+            <input type="text" class="form-control" placeholder="Enter district">
+            <!-- <select ngModel name="job" id="job" class="form-control" required>
                     <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
-            </select>
+            </select> -->
         </div>  
     </div>
 
@@ -67,10 +69,10 @@
         <div class="col-md-6 form-group form-group work_two">
             <label for="job">Previous work experience (in years) - मागील कामाचा अनुभव वर्षांमध्ये</label>
             <select ngModel name="job" id="job" class="form-control" required>
-                <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
+                <option *ngFor="let exp of workexp" [ngValue]="exp">{{exp}}</option>
             </select>
         </div>  
-    </div>
+    </div><br><br>
 
     <div class="btngroup">
         <button (click)="backtoreg()" id="bt" type="button" class="btn btn-primary">Back</button>

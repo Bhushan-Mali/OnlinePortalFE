@@ -36,7 +36,7 @@
         <div class="col-sm-3 form-group">
             <label for="gender">Gender - लिंग</label>
             <select ngModel name="gender" id="gender" class="form-control" required>
-                <option *ngFor="let item of gender" [ngValue]="item">{{item.name}}</option>
+                <option *ngFor="let item of gender" [ngValue]="item">{{item}}</option>
             </select>
         </div>
     </div>
@@ -89,20 +89,20 @@
   <div class="row">
     <div class="col-sm-4 form-group">
         <label for="edu">Highest Education - सर्वौच्च महाविद्यालयीन पदवी</label>
-        <select ngModel name="edu" id="edu" class="form-control" required>
-                <option *ngFor="let item of edu" [ngValue]="item">{{item.name}}</option>
+        <select ngModel name="education" id="edu" class="form-control" required>
+                <option *ngFor="let item of education" [ngValue]="item">{{item}}</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
         <label for="stream">Select your Stream - तुमचा प्रवाह निवडा</label>
         <select ngModel name="stream" id="stream" class="form-control" required>
-                <option *ngFor="let item of stream" [ngValue]="item">{{item.name}}</option>
+                <option *ngFor="let item of stream" [ngValue]="item">{{item}}</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
         <label for="grade">Grade in Highest Degree - </label>
         <select ngModel name="grade" id="grade" class="form-control" required>
-                <option *ngFor="let item of grade" [ngValue]="item">{{item.name}}</option>
+                <option *ngFor="let item of grade" [ngValue]="item">{{item}}</option>
         </select>
     </div>
   </div>
@@ -111,11 +111,11 @@
   <div class="row">
     <div class="col-sm-6 form-group">
         <label>Other Degree - इतर पदवी<br>If selected "Other" option in Highest College Degree</label>
-        <input class="form-control" type="degree" placeholder="">
+        <input class="form-control" type="degree" placeholder="Enter your degree">
     </div>
     <div class="col-sm-6 form-group">
         <label>Other Stream - इतर प्रवाह<br>If selected "Other" option in Stream</label>
-        <input class="form-control" type="str" placeholder="">
+        <input type="text" class="form-control" placeholder="Enter your stream"> 
     </div>
   </div>
 

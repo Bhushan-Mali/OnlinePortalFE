@@ -8,50 +8,10 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  gender:any[]=[
-    {name:'Male'},
-    {name:'Female'},
-    {name:'Transgender'},
-    {name:'Decline to answer'}
-  ]
-
-  grade:any[]=[
-    {name:'Below 40%'},
-    {name:'Below 50%'},
-    {name:'Below 60%'},
-    {name:'Below 70%'},
-    {name:'Below 80%'},
-    {name:'Below 90%'},
-    {name:'Below 100%'}
-  ]
-  stream:any[]=[
-    {name:'BA'},
-    {name:'BCom'},
-    {name:'BMS'},
-    {name:'BSc'},
-    {name:'MCom'},
-    {name:'BBA'},
-    {name:'BAF'},
-    {name:'BE'},
-    {name:'BSc IT'},
-    {name:'MSc IT'},
-    {name:'BCA'},
-    {name:'MCA'},
-    {name:'Others'}
-  ]
-
-  edu:any[]=[
-    {name:'10th Pass'},
-    {name:'10th Fail'},
-    {name:'12th Pass'},
-    {name:'12th Fail'},
-    {name:'Undergraduate'},
-    {name:'Graduate'},
-    {name:'Double graduate'},
-    {name:'Diploma'},
-    {name:'MBA'},
-    {name:'Other'}
-  ]
+  gender:any[]=['Male','Female','Transgender','Decline to answer' ]
+  grade:any[]=['Below 40%','Below 40%','Below 60%','Below 70%','Below 80%','Below 90%','Below 100%']
+  stream:any[]=['BA','BCom','BMS','BSc','MCom','BAF','BE','BSc IT','MSc IT','BCA','MCA','Others']
+  education:any[]=['10th Pass','10th Fail','12th Pass','12th Fail','Undergraduate','Graduate','Double graduate','Diploma','MBA','Other']
 
   title:any[]=[]
 
@@ -68,3 +28,4 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/empdetails']);
   }
 }
+

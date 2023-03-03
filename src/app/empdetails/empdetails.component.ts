@@ -8,23 +8,16 @@ import { Router } from '@angular/router';
 })
 export class EmpdetailsComponent implements OnInit {
 
-  state:any[]=[
-    {name:'Andhra Pradesh'},{name:'Arunachal Pradesh'},{name:'Assam'},{name:'Bihar'},{name:'Chhattisgarh'},{name:'Goa'},{name:'Gujrat'},
-    {name:'Haryana'},{name:'Himachal Pradesh'},{name:'Jharkhand'},{name:'Karnataka'},{name:'Kerala'},{name:'Madhya Pradesh'}, {name:'Maharashtra'}, 
-    {name:'Manipur'},{name:'Meghalaya'},{name:'Mizoram'},{name:'Nagaland'},{name:'Odisha'},{name:'Punjab'},{name:'Rajasthan'},
-    {name:'Sikkim'},{name:'Tamil Nadu'},{name:'Telangana'},{name:'Tripura'},{name:'Uttarakhand'},{name:'Uttar Pradesh'},{name:'West Bengal'}
-  ]
+  state:any[]=['Andhra Pradesh','Arunachal Pradesh','Assam', 'Bihar','Chhattisgarh','Goa','Gujrat',
+        'Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra', 
+        'Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim',
+        'Tamil Nadu','Telangana','Tripura','Uttarakhand','Uttar Pradesh','West Bengal' ]
 
   dist:any[]=[]
 
-  job:any[]=[
-    {name:'Part time'},
-    {name:'Full time'},
-    {name:'Internship'},
-    {name:'Appreticeship'}
-  ]
+  job:any[]=['Part time','Full time','Internship','Apprenticeship']
 
-  work:any[]=[]
+  workexp:any[]=['1','2','3','4','5','Above 5 years','Above 10 years']
 
   constructor(private router:Router) { }
 
