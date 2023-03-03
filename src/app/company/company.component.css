@@ -13,7 +13,8 @@ p{ text-align: center;}
     height: 165px;
     /* padding-left: 20px;
     padding-right: 20px; */
-    width: 100px;
+    margin-left: 15px;
+    max-width: 165px;
     border: 1px solid #000;
 }
 .textinfo {

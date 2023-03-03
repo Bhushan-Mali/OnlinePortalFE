@@ -17,7 +17,8 @@ import { CompanyComponent } from './company/company.component';
     EmpdetailsComponent,
     EmpdetailsComponent,
     UploaddocComponent,
-    CompanyComponent
+    CompanyComponent,
+  
   ],
   imports: [
     BrowserModule,

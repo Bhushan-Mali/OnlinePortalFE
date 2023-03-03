@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -12,47 +13,29 @@ export class CompanyComponent implements OnInit {
   MOBILE_PATTERN="/((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/";
   // /^[6-9]{1}[0-9]{9}$/
 
-  state:any[]=[ {name:'Andhra Pradesh'},{name:'Arunachal Pradesh'},{name:'Assam'},{name:'Bihar'},{name:'Chhattisgarh'},{name:'Goa'},{name:'Gujrat'},
-        {name:'Haryana'},{name:'Himachal Pradesh'},{name:'Jharkhand'},{name:'Karnataka'},{name:'Kerala'},{name:'Madhya Pradesh'}, {name:'Maharashtra'}, 
-        {name:'Manipur'},{name:'Meghalaya'},{name:'Mizoram'},{name:'Nagaland'},{name:'Odisha'},{name:'Punjab'},{name:'Rajasthan'},
-        {name:'Sikkim'},{name:'Tamil Nadu'},{name:'Telangana'},{name:'Tripura'},{name:'Uttarakhand'},{name:'Uttar Pradesh'},{name:'West Bengal'} 
-      ]
+  state:any[]=[ 'Andhra Pradesh','Arunachal Pradesh','Assam', 'Bihar','Chhattisgarh','Goa','Gujrat',
+        'Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra', 
+        'Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim',
+        'Tamil Nadu','Telangana','Tripura','Uttarakhand','Uttar Pradesh','West Bengal' ]
 
-      dist:any[]=[ {name:'Satara'}, {name:'Pune'}, {name:'Sangali'}, {name:'kolhapur'}, {name:'Beed'}]
+  district:any[]=['Satara','Pune','Sangali','kolhapur','Beed', 'Mumbai Upnagar','Sholinganallur']
 
-  cat:any[]=[{name:'OPC'}, {name:'PVT'}, {name:'LLP'},{name:'GOV'},{name:'PVL'}
-      ]
-
-      // post:any[]=[];
-
-      // selectedItem:string='';
-      // selectedValue:string='';
+  category:any[]=['OPC','PVT','LLP','GOV','PVL']
 
   constructor(private service:HttpService) { }
 
   ngOnInit(): void {
   }
 
-  // selectChange(event:any){
-  //   this.selectedItem=event.target.value;
-  // }
+  onSend(f:NgForm){
+      console.log(f.value);
+      this.service.PostData(f.value).subscribe((response)=>{
+      console.log(response); 
+      window.alert("Registration Successful !")      
+    })
+  }
 
-  // selectChangeHandler(event:any){
-  //   this.selectedValue=event.target.value;
-  // }
+    
 
-   onSend(mycompany:any, myaddress:any, mydate:any, mysts:any, mydis:any, mycity:any, myweb:any,
-          mycategory:any, mycomment:any, myfname:any, myccon:any, myemail:any, 
-          mefname:any, mecco:any, memail:any) {
-     
-        let obj={
-          name:mycompany, address:myaddress, establishmentdate:mydate, state:mysts, district:mydis,
-          city:mycity, website:myweb, category:mycategory, information:mycomment, cfullName:myfname,
-          ccontact:myccon, cgmail:myemail, hrfullName:mefname, hrcontact:mecco, hrgmail:memail,  
-        }
 
-        this.service.PostData(obj).subscribe((response)=>{
-          console.log(response);
-        })
-   }
 }

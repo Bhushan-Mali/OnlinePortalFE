@@ -8,16 +8,17 @@
     <br>
 
 
-    <form #f="ngForm">
+    <form #f="ngForm" (ngSubmit)="onSend(f)">
+        <!-- {{f.value | json}} -->
 
     <div class="row">
         <div class="col-lg-9 form-group">
             <label>Name Of The Company</label>
-            <input class="form-control" type="text" placeholder="Enter the name of the company" ngModel name="mycompany" #company="ngModel" required>
+            <input class="form-control" ngModel name="name" #company="ngModel" type="text" placeholder="Enter the name of the company" required>
             <div class="alert alert-danger" *ngIf="company.touched && company.invalid">**Please enter company name</div>
             <br>
             <label>Postal Address Of The Company</label>
-            <input class="form-control" type="text" ngModel name="add" #address="ngModel" placeholder="Enter the address of the company" required>
+            <input class="form-control" ngModel name="address" #address="ngModel" type="text" placeholder="Enter the address of the company" required>
             <div class="alert alert-danger" *ngIf="address.touched && address.invalid">**Please enter company address</div>
         </div>
         <br>
@@ -31,25 +32,25 @@
     <div class="row">
         <div class="col-sm-3 form-group">
             <label>Date Of Establishment</label>
-            <input ngModel #date="ngModel" name="date" class="form-control" type="date" placeholder="Pick date">
+            <input ngModel name="establishmentdate" class="form-control" type="date" placeholder="Pick date">
         </div>
         <div class="col-sm-3 form-group">
             <label for="state">State - राज्य निवडा</label>
-            <input ngModel #sts="ngModel" name="state" id="state" class="form-control" placeholder="Enter your state name" required>
-            <!-- <select ngModel #sts="ngModel" name="state" id="state" class="form-control" required>
-                    <option *ngFor="let item of state" [ngValue]="item">{{item.name}}</option>
-            </select> -->
+            <!-- <input ngModel #sts="ngModel" name="state" id="state" class="form-control" placeholder="Enter your state name" required> -->
+            <select ngModel name="state" id="state" class="form-control" required>
+                    <option *ngFor="let states of state" [ngValue]="states">{{states}}</option>
+            </select>
         </div>
         <div class="col-md-3 form-group">
-            <label for="dist">District - जिल्हा निवडा</label>
-            <input class="form-control" ngModel #dis="ngModel" type="text" name="dist" placeholder="Enter your district name">
-            <!-- <select ngModel #dis="ngModel" name="dist" id="dist" class="form-control" required>
-                    <option *ngFor="let item of dist" [ngValue]="item">{{item.name}}</option>
+            <label for="district">District - जिल्हा निवडा</label>
+            <input class="form-control" ngModel type="text" id="dist" name="district" placeholder="Enter your district name">
+            <!-- <select ngModel name="district" id="dist" class="form-control" required>
+                    <option *ngFor="let districts of district" [ngValue]="districts">{{districts}}</option>
             </select> -->
         </div>
         <div class="col-sm-3 form-group">
             <label>Village/City - गाव/शहर</label>
-            <input class="form-control" ngModel #city="ngModel" name="city" type="text" placeholder="Please enter your village/city">
+            <input class="form-control" ngModel name="city" type="text" placeholder="Please enter your village/city">
         </div>
     </div>
 
@@ -57,38 +58,38 @@
     <div class="row">
         <div class="col-md-6 form-group">
             <label>Company Website</label>
-            <input class="form-control" ngModel #web="ngModel" name="web" type="text" placeholder="Enter your website">
+            <input class="form-control" ngModel name="website" id="web" type="text" placeholder="Enter your website">
         </div>
         <div class="col-md-3 form-group">
             <label for="cat">Category</label>
-            <input ngModel #category="ngModel" name="cat" id="cat" class="form-control" placeholder="Enter category" required>
-            <!-- <select ngModel #category="ngModel" name="cat" id="cat" class="form-control" required>
-                    <option *ngFor="let item of cat" [ngValue]="item">{{item.name}}</option>
-            </select> -->
+            <!-- <input ngModel #category="ngModel" name="cat" id="cat" class="form-control" placeholder="Enter category" required> -->
+            <select ngModel name="category" id="cat" class="form-control" required>
+                    <option *ngFor="let categories of category" [ngValue]="categories">{{categories}}</option>
+            </select>
         </div>
     </div>
 
 
     <div class="form-group">
         <label>Brief Introduction To Company</label>
-        <textarea class="form-control" ngModel name="comment" #comment="ngModel" placeholder="Enter the brief introduction to company" cols="30" rows="3" required></textarea>
+        <textarea class="form-control" ngModel name="information" placeholder="Enter the brief introduction to company" cols="30" rows="3" required></textarea>
     </div>
 
 
     <label>Company Point Of Contact Details</label>
     <div class="row">   
         <div class="col-sm-4 form-group">
-            <input ngModel #fname="ngModel" name="fname" class="form-control" type="text" placeholder="Full name">
+            <input ngModel name="cfullName" class="form-control" type="text" placeholder="Full name">
         </div>
         <div class="col-sm-4 form-group">
-            <input ngModel #ccon="ngModel" id="ccon" name="ccon" class="form-control" type="tel" 
+            <input ngModel name="ccontact" #ccon="ngModel" id="ccon" class="form-control" type="tel" 
                    [pattern]="MOBILE_PATTERN" placeholder="Contact number" required>
             <div class="alert alert-danger" *ngIf="ccon.touched && ccon.invalid">Please enter mobile number
                 <div *ngIf="ccon.errors?.pattern">Please enter correct mobile number</div>
             </div>
         </div>
         <div class="col-sm-4 form-group">
-            <input ngModel #email="ngModel" class="form-control" id="myemail" name="email" type="email" placeholder="example@gmail.com"
+            <input ngModel name="cgmail" #email="ngModel" class="form-control" id="myemail" type="email" placeholder="example@gmail.com"
                    [pattern]="EMAIL_PATTERN" required>
             <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Please enter email id
                 <div *ngIf="email.errors?.pattern">Please enter appropriate email id</div>
@@ -100,17 +101,17 @@
     <label>Company HR Details</label>
     <div class="row">   
         <div class="col-sm-4 form-group">
-            <input ngModel #hrfName="ngModel" name="hrfName" class="form-control" type="text" placeholder="Full name">
+            <input ngModel name="hrfullName" class="form-control" type="text" placeholder="Full name">
         </div>
         <div class="col-sm-4 form-group">
-            <input ngModel #cco="ngModel" id="cco" name="cco" class="form-control" type="tel" 
+            <input ngModel name="hrcontact" #cco="ngModel" id="cco" class="form-control" type="tel" 
                    [pattern]="MOBILE_PATTERN" placeholder="Contact number" required>
             <div class="alert alert-danger" *ngIf="cco.touched && cco.invalid">Please enter mobile number
                 <div *ngIf="cco.errors?.pattern">Please enter correct mobile number</div>
             </div>
         </div>
         <div class="col-sm-4 form-group">
-            <input ngModel #myemail="ngModel" class="form-control" id="email" name="myemail" type="email" placeholder="example@gmail.com"
+            <input ngModel name="hrgmail" #myemail="ngModel" class="form-control" id="email" type="email" placeholder="example@gmail.com"
                [pattern]="EMAIL_PATTERN" required>
             <div class="alert alert-danger" *ngIf="myemail.touched && myemail.invalid">Please enter email id
                <div *ngIf="myemail.errors?.pattern">Please enter appropriate email id</div>
@@ -120,20 +121,12 @@
 
 
     <div class="btngroup">
-        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>
-        <button id="bt" type="button" class="btn btn-primary" (click)="onSend(company.value, address.value,
-            date.value, sts.value, dis.value, city.value, web.value, category.value, comment.value,
-            fname.value, ccon.value, email.value, hrfName.value, cco.value, myemail.value)" [disabled]="!f.valid">Register</button>
+        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>        
+        <button id="bt" [disabled]="!f.valid" class="btn btn-outline-primary">Submit</button>
     </div>
-
+    
     </form>
     
-
-
-
-
-
-
 
 </div>
 
