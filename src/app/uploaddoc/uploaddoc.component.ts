@@ -17,7 +17,7 @@ export class UploaddocComponent implements OnInit {
     console.log(event.target.files[0]);
   }
 
-  backtoEmp(){
-    this.router.navigate(['/empdetails']);
-  }
+  // backtoEmp(){
+  //   this.router.navigate(['/empdetails']);
+  // }
 }
