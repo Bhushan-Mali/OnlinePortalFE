@@ -2,7 +2,7 @@ label{ font-weight: bold;}
 h2{text-align: center;}
 p{ text-align: center;}
 
-#bt{ margin: 10px; padding: 5px; margin-left: 10px;}
+#bt{ margin: 10px; padding: 5px; margin-left: 10px; min-width: 70px;}
 #state{ cursor: pointer;}
 #dist{ cursor: pointer;}
 #cat{ cursor: pointer;}
@@ -11,8 +11,6 @@ p{ text-align: center;}
 
 .square {
     height: 165px;
-    /* padding-left: 20px;
-    padding-right: 20px; */
     margin-left: 15px;
     max-width: 165px;
     border: 1px solid #000;

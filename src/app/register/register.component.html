@@ -4,17 +4,18 @@
         <p>The name and photo associated with your email account will be recorded<br><p style="color: red;">All fields are required fields*</p>
     </div>
     
-    <form (ngSubmit)="submit()">
-     
+    <form #f="ngForm" (ngSubmit)="onSend(f)">
+     {{f.value | json}}
+
     <div *ngIf="steps==1">
     <label>Looking For ?</label>
     <div class="row">
         <div class="radio">
             <label for="con0" id="look1">
-                <input ngModel #emp="ngModel" type="radio" name="lookingFor" id="con0" value="em" required>Employment - रोजगार  
+                <input ngModel #emp="ngModel" type="radio" name="lookingFor" id="con0" value="Employment" required>Employment - रोजगार  
             </label>
             <label for="con1" id="look2">
-                <input ngModel #emp="ngModel" type="radio" name="lookingFor" id="con1" value="self" required>Self Employment - स्वयंरोजगार
+                <input ngModel #emp="ngModel" type="radio" name="lookingFor" id="con1" value="Self Employment" required>Self Employment - स्वयंरोजगार
             </label>
         </div>    
     </div>
@@ -29,11 +30,11 @@
         </div>
         <div class="col-sm-3 form-group">
             <label>First Name (As per your Aadhar) - पहिले नाव (तुमच्या आधार कार्डनुसार )</label>
-            <input class="form-control" name="fName" type="text" placeholder="Enter First Name">
+            <input class="form-control" ngModel #name="ngModel" name="fName" type="text" placeholder="Enter First Name">
         </div>
         <div class="col-sm-3 form-group">
             <label>Last Name (As per your Aadhar) - आडनाव ( तुमच्या आधार कार्डनुसार )</label>
-            <input class="form-control" name="fName" type="text" placeholder="Enter Last Name">
+            <input class="form-control" ngModel #name="ngModel" name="lName" type="text" placeholder="Enter Last Name">
         </div>
         <div class="col-sm-3 form-group">
             <label for="gender">Gender - लिंग</label>
@@ -47,7 +48,7 @@
     <div class="row">
         <div class="col-sm-3 form-group">
             <label for="birth">Date of Birth - जन्मतारीख</label>
-            <input class="form-control" name="bDate" type="date" placeholder="Pick date">
+            <input class="form-control" ngModel name="bDate" type="date" placeholder="Pick date">
         </div>
         <div class="col-sm-6 form-group">
             <label for="email">Email Address - ईमेल पत्ता</label>
@@ -79,11 +80,11 @@
         </div>
         <div class="col-sm-4 form-group">
             <label for="aadharcard">Aadhar Card Number - आधारकार्ड क्रमांक</label>
-            <input class="form-control" name="aadharcard" type="text" placeholder="Enter Aadhar card number">
+            <input class="form-control" ngModel #aadhar="ngModel" name="aadharcard" type="text" placeholder="Enter Aadhar card number">
         </div>
         <div class="col-sm-4 form-group">
             <label>College Name - काॅलेजचे नाव</label>
-            <input class="form-control" name="college" type="text" placeholder="Enter College name">
+            <input class="form-control" ngModel #college="ngModel" name="college" type="text" placeholder="Enter College name">
         </div>
     </div>
     <br>
@@ -113,11 +114,11 @@
     <div class="row">
         <div class="col-sm-6 form-group">
             <label>Other Degree - इतर पदवी<br>If selected "Other" option in Highest College Degree</label>
-            <input class="form-control" name="otherDegree" type="degree" placeholder="Enter your degree">
+            <input class="form-control" ngModel #odegree="ngModel" name="otherDegree" type="degree" placeholder="Enter your degree">
         </div>
         <div class="col-sm-6 form-group">
             <label>Other Stream - इतर प्रवाह<br>If selected "Other" option in Stream</label>
-            <input type="text" name="otherStream" class="form-control" placeholder="Enter your stream"> 
+            <input type="text" ngModel #ostream="ngModel" name="otherStream" class="form-control" placeholder="Enter your stream"> 
         </div>
     </div>
   </div>
@@ -127,7 +128,7 @@
     <div class="row">
         <div class="col-md-6 form-group">
             <label>Last/Previous Education - शेवटचेे मागील शिक्षण</label>
-            <input name="preEducation" class="form-control" type="text">
+            <input ngModel #predu="ngModel" name="preEducation" class="form-control" type="text">
         </div>
         <div class="col-md-6 form-group">
             <label for="state">State - राज्य निवडा</label>
@@ -140,7 +141,7 @@
     <div class="row">
         <div class="col-md-6 form-group">
             <label for="dist">District - जिल्हा निवडा</label>
-            <input type="text" name="district" class="form-control" placeholder="Enter district">
+            <input ngModel #district="ngModel" type="text" name="district" class="form-control" placeholder="Enter district">
         </div>
         <div class="col-md-6 form-group">
             <label for="job">Looking for job in - यामध्ये नोकरी शोधत आहात</label>
@@ -155,18 +156,15 @@
     <div class="row">
         <div class="radio col-md-6 form-group relocate_one">
             <label for="rad0" id="look1">
-                <input ngModel #emp="ngModel" type="radio" name="relocate" id="rad0" value="yes1" required>Yes 
+                <input ngModel #emp="ngModel" type="radio" name="relocate" id="rad0" value="Yes" required>Yes 
             </label>
             <label for="rad1" id="look2">
-                <input ngModel #emps="ngModel" type="radio" name="relocate" id="rad1" value="yes2" required>No
+                <input ngModel #emps="ngModel" type="radio" name="relocate" id="rad1" value="No" required>No
             </label>
         </div>  
         <div class="col-md-6 form-group relocate_two">
             <label for="job">Prefered district for job - नोकरी करन्यास जिल्हा निवडा</label>
-            <input type="text" name="preDistrict" class="form-control" placeholder="Enter district">
-            <!-- <select ngModel name="job" id="job" class="form-control" required>
-                    <option *ngFor="let item of job" [ngValue]="item">{{item.name}}</option>
-            </select> -->
+            <input type="text" ngModel #predist="ngModel" name="preDistrict" class="form-control" placeholder="Enter district">
         </div>  
     </div>
 
@@ -174,10 +172,10 @@
     <div class="row">
         <div class="radio col-md-6 form-group ">
             <label for="con0" id="look1">
-            <input ngModel #emp="ngModel" type="radio" name="workExp" id="con0" value="fre" required>Fresher
+            <input ngModel #emp="ngModel" type="radio" name="workExp" id="con0" value="Fresher" required>Fresher
             </label>
             <label for="con1" id="look2">
-            <input ngModel #emps="ngModel" type="radio" name="workExp" id="con1" value="exp" required>Experienced
+            <input ngModel #emps="ngModel" type="radio" name="workExp" id="con1" value="Experienced" required>Experienced
             </label>
         </div>  
         <div class="col-md-6 form-group form-group work_two">
@@ -187,14 +185,14 @@
             </select>
         </div>  
     </div>
-    </div> 
+    </div><br><br>
 
 
     <div *ngIf="steps==3">
     <div class="row">
         <div class="col col-sm-4 col-md-6 form-group">
             <label for="customFile" class="form-label">Upload Resume File - रेझ्युमे फाईल अपलोड करा</label>  
-            <input class="form-control" type="file" id="customFile" (change)="onChange($event)">
+            <input ngModel #file="ngModel" name="file" class="form-control" type="file" id="customFile" (change)="onChange($event)">
         </div>
     </div>
     <br><br>
@@ -203,10 +201,10 @@
 
     <div class="btngroup">
         <button id="bt" type="button" class="btn btn-outline-primary" *ngIf="steps !=1" (click)="back()">Back</button>
-        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button> 
-        <button id="bt" type="submit" class="btn btn-outline-primary" *ngIf="steps !=3">Next</button>
+        <button id="bt" type="button" class="btn btn-outline-primary" (click)="resetForm(f)">Reset</button> 
+        <button id="bt" type="button" class="btn btn-outline-primary" *ngIf="steps !=3" (click)="next()">Next</button>
         <button id="bt" type="submit" class="btn btn-outline-primary" *ngIf="steps ==3">Submit</button>
-    </div>
+    </div><br>
 
   </form>
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-register',
@@ -27,16 +29,25 @@ export class RegisterComponent implements OnInit {
 
   steps:any=1;
 
-  constructor(private router:Router) { }
+  constructor( private service :HttpService ,private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSend(f:NgForm){
+      console.log(f.value);
+      this.service.PostInfo(f.value).subscribe((response)=>{
+      console.log(response); 
+      window.alert("Candidate Successfully Registered !");
+      this.resetForm(f);
+    })
   }
 
   back(){
     this.steps = this.steps -1;
   }
 
-  submit(){
+  next(){
     this.steps = this.steps +1;
   }
 
@@ -44,8 +55,11 @@ export class RegisterComponent implements OnInit {
     console.log(event.target.files[0]);
   }
 
-  // empDetails(){
-  //   this.router.navigate(['/empdetails']);
-  // }
+  resetForm(f:NgForm){
+    f.reset();
+  }
+
+
+
 }
 

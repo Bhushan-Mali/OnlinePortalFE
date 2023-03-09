@@ -121,9 +121,9 @@
 
 
     <div class="btngroup">
-        <button id="bt" type="button" class="btn btn-outline-primary">Reset</button>        
+        <button id="bt" type="button" class="btn btn-outline-primary" (click)="resetForm(f)">Reset</button>        
         <button id="bt" [disabled]="!f.valid" class="btn btn-outline-primary">Submit</button>
-    </div>
+    </div><br>
     
     </form>
     
