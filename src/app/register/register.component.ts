@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 
@@ -29,7 +29,18 @@ export class RegisterComponent implements OnInit {
 
   steps:any=1;
 
-  constructor( private service :HttpService ,private router:Router) { }
+  // multistep = new FormGroup({
+  //   personalDetails: new FormGroup({
+  //     lookingFor: new FormControl(''),
+  //     title: new FormControl(''),fName: new FormControl(''),lName: new FormControl(''),
+  //     gender: new FormControl(''),bDate: new FormControl(''),email: new FormControl(''),
+  //     contact: new FormControl(''),pancard: new FormControl(''),aadharcard: new FormControl(''),
+  //     college: new FormControl(''),highestEdu: new FormControl(''),stream: new FormControl(''),
+  //     grade: new FormControl(''),otherDegree: new FormControl(''),otherStream: new FormControl(''),
+  //   })
+  // })
+
+  constructor( private service :HttpService, private router:Router) { }
 
   ngOnInit(): void {
   }

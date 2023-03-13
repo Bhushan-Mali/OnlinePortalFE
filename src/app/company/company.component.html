@@ -35,8 +35,7 @@
             <input ngModel name="establishmentdate" class="form-control" type="date" placeholder="Pick date">
         </div>
         <div class="col-sm-3 form-group">
-            <label for="state">State - राज्य निवडा</label>
-            <!-- <input ngModel #sts="ngModel" name="state" id="state" class="form-control" placeholder="Enter your state name" required> -->
+            <label for="state">State - राज्य निवडा</label>    
             <select ngModel name="state" id="state" class="form-control" required>
                     <option *ngFor="let states of state" [ngValue]="states">{{states}}</option>
             </select>
